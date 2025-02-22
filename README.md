@@ -18,6 +18,11 @@ This project demonstrates the use of:
 
 * User-Friendly Interface: Choose between a web-based interface or a command-line interface.
 
-# Libraries: 
+# Libraries
 flask, requests, textblob, newsapi-python
+
+# Output
+![Screenshot 2025-02-23 004535](https://github.com/user-attachments/assets/4859e417-d641-4d3e-885a-e55104ed9360)
+![Screenshot 2025-02-23 004627](https://github.com/user-attachments/assets/c5afdd8b-2d2c-4ede-a09c-f8ffd5b6ef51)
+![Screenshot 2025-02-23 004709](https://github.com/user-attachments/assets/2d3278ef-c81e-45d6-ac62-289b044ff96c)
 
