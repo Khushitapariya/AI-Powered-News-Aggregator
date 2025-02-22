@@ -22,6 +22,7 @@ This project demonstrates the use of:
 flask, requests, textblob, newsapi-python
 
 # OUTPUT
-![image](https://github.com/user-attachments/assets/43ea4a5f-64f8-43c1-88d6-1692e28a575d)
-![image](https://github.com/user-attachments/assets/88fa8511-1982-4b13-a966-64e12477235c)
-
+![image](https://github.com/user-attachments/assets/b4031403-2597-4c2d-b402-51798a2140e4)
+![image](https://github.com/user-attachments/assets/ad5f59c7-b411-429d-b72d-81c1c1c0345a)
+![image](https://github.com/user-attachments/assets/77e1009a-0644-4c79-bc6d-137ffa5b157b)
+etc.
