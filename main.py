@@ -46,6 +46,25 @@ def summarize_article(text, max_sentences=2):
     summary = " ".join([str(sentence) for sentence in sentences[:max_sentences]])
     return summary
 
+def analyze_headline(headline):
+    """
+    Analyze a headline to detect misleading content.
+    """
+    blob = TextBlob(headline)
+    
+    # Check for sensational or exaggerated language
+    sensational_words = ["shocking", "unbelievable", "amazing", "mind-blowing", "must-see"]
+    sensational_count = sum(headline.lower().count(word) for word in sensational_words)
+    
+    # Check for negative sentiment (can indicate bias)
+    sentiment = blob.sentiment.polarity
+    
+    # Classify as misleading if sensational language is present or sentiment is highly negative
+    if sensational_count > 1 or sentiment < -0.5:
+        return "Misleading"
+    else:
+        return "Reliable"
+
 @app.route("/")
 def home():
     """
@@ -63,14 +82,15 @@ def home():
             image = article["urlToImage"]
 
             # Summarize the article
-            summary = summarize_article(description)
+            classification = analyze_headline(title) 
 
             # Add the article to the categorized news dictionary
             categorized_news[category].append({
                 "title": title,
-                "summary": summary,
+                "description": description,
                 "url": url,
                 "image": image
+                "classification": classification
             })
 
     return render_template("index.html", categorized_news=categorized_news)
