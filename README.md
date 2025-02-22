@@ -1,15 +1,27 @@
 # AI-Powered-News-Aggregator
-This repository contains an AI-driven news aggregator designed to analyze news headlines and dynamically detect and classify misleading content. By leveraging natural language processing (NLP) and machine learning, the system identifies potential misinformation, bias, and sensationalism in real-time.
+The AI-Powered News Aggregator is a Python-based application that fetches the latest news articles from various categories (e.g., technology, sports, business) using the NewsAPI. It analyzes the headlines to detect potentially misleading or sensational content using Natural Language Processing (NLP) techniques. The application classifies each article as "Reliable" or "Misleading" and displays the results in an easy-to-read format.
 
+This project demonstrates the use of:
+
+* NewsAPI for fetching real-time news data.
+
+* TextBlob for sentiment analysis and keyword extraction.
+
+* Flask (for the web-based version) to create a user-friendly interface.
+  
 # Features
-Automated News Scraping: Collects and processes news headlines from multiple sources.
-Misleading Content Detection: Uses NLP models to classify news as factual, misleading, biased, or clickbait.
-Sentiment Analysis: Evaluates the tone and sentiment of headlines to detect potential misinformation.
-Dynamic Classification: Adapts to new trends and evolving news patterns using continuous learning.
-Customizable Filters: Allows users to set parameters for content classification based on credibility and bias levels.
-User Dashboard: Visualizes categorized news for better insights and transparency.
-How It Works
-The system scrapes news headlines from various sources.
-Headlines are preprocessed and analyzed using NLP models.
-The AI classifies the headlines based on predefined categories (e.g., factual, misleading, biased, sensational).
-Users can view real-time classifications and adjust filtering preferences.
+* Fetch News: Retrieve the latest news articles from multiple categories.
+
+* Misleading Content Detection: Analyze headlines to detect sensational or biased language.
+
+* Dynamic Classification: Classify articles as "Reliable" or "Misleading".
+
+* User-Friendly Interface: Choose between a web-based interface or a command-line interface.
+
+# Libraries: 
+flask, requests, textblob, newsapi-python
+
+# OUTPUT
+![image](https://github.com/user-attachments/assets/43ea4a5f-64f8-43c1-88d6-1692e28a575d)
+![image](https://github.com/user-attachments/assets/88fa8511-1982-4b13-a966-64e12477235c)
+
