@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered News Aggregator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .category {
+            margin-bottom: 30px;
+        }
+        .category h2 {
+            color: #555;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .articles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .article {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            width: calc(33.333% - 20px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .article img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .article h3 {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        .article p {
+            font-size: 14px;
+            color: #666;
+        }
+        .article a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .article a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI-Powered News Aggregator</h1>
+        {% for category, articles in categorized_news.items() %}
+            <div class="category">
+                <h2>{{ category.capitalize() }}</h2>
+                <div class="articles">
+                    {% for article in articles %}
+                        <div class="article">
+                            {% if article.image %}
+                                <img src="{{ article.image }}" alt="{{ article.title }}">
+                            {% endif %}
+                            <h3>{{ article.title }}</h3>
+                            <p>{{ article.summary }}</p>
+                            <a href="{{ article.url }}" target="_blank">Read more</a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
