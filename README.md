@@ -21,8 +21,3 @@ This project demonstrates the use of:
 # Libraries: 
 flask, requests, textblob, newsapi-python
 
-# OUTPUT
-![image](https://github.com/user-attachments/assets/b4031403-2597-4c2d-b402-51798a2140e4)
-![image](https://github.com/user-attachments/assets/ad5f59c7-b411-429d-b72d-81c1c1c0345a)
-![image](https://github.com/user-attachments/assets/77e1009a-0644-4c79-bc6d-137ffa5b157b)
-etc.
