@@ -1,11 +1,8 @@
-from flask import Flask, render_template
 from textblob import TextBlob
 from newsapi import NewsApiClient
 
-app = Flask(__name__)
-
 # Initialize NewsAPI client
-NEWS_API_KEY = "c3d18f0e3bdf4b738072c4340066070d"
+NEWS_API_KEY = "c3d18f0e3bdf4b738072c4340066070d" 
 newsapi = NewsApiClient(api_key=NEWS_API_KEY)
 
 # Predefined categories
@@ -16,7 +13,7 @@ def fetch_news(category):
     Fetch news articles for a given category using NewsAPI.
     """
     try:
-        response = newsapi.get_top_headlines(category=category, language="en", page_size=10)
+        response = newsapi.get_top_headlines(category=category, language="en", page_size=5)  # Fetch top 5 articles
         return response["articles"]
     except Exception as e:
         print(f"Error fetching news for {category}: {e}")
@@ -41,35 +38,33 @@ def analyze_headline(headline):
     else:
         return "Reliable"
 
-@app.route("/")
-def home():
+def display_news():
     """
-    Render the home page with analyzed and classified news articles.
+    Fetch, analyze, and display news articles in the terminal.
     """
-    categorized_news = {category: [] for category in CATEGORIES}
-
-    # Fetch and analyze news articles
+    print("Welcome to the AI-Powered News Aggregator!\n")
+    
     for category in CATEGORIES:
+        print(f"=== {category.upper()} ===")
         articles = fetch_news(category)
-        for article in articles:
+        
+        if not articles:
+            print("No articles found.\n")
+            continue
+        
+        for i, article in enumerate(articles, 1):
             title = article["title"]
             description = article["description"]
             url = article["url"]
-            image = article["urlToImage"]
-
-            # Analyze the headline
             classification = analyze_headline(title)
-
-            # Add the article to the categorized news dictionary
-            categorized_news[category].append({
-                "title": title,
-                "description": description,
-                "url": url,
-                "image": image,
-                "classification": classification
-            })
-
-    return render_template("index.html", categorized_news=categorized_news)
+            
+            print(f"\nArticle {i}:")
+            print(f"Title: {title}")
+            print(f"Description: {description}")
+            print(f"Classification: {classification}")
+            print(f"URL: {url}")
+        
+        print("\n" + "=" * 30 + "\n")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    display_news()
